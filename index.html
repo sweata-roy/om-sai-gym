@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Om Sai Gym | Silchar's Most Premium Fitness Destination</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400;0,8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E0D0C;
+  --ink-soft:#181613;
+  --ivory:#F4ECD8;
+  --ivory-dim:#E8DEC7;
+  --gold:#C9A227;
+  --gold-bright:#E2BE4C;
+  --brick:#8B1E1E;
+  --charcoal:#3A3531;
+  --grey:#8A8478;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Archivo',sans-serif;
+  font-weight:400;
+  background:var(--ink);
+  color:var(--ivory);
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,.brand,.btn,.tag-word,.stat-num,.transform-stat{
+  font-family:'Archivo Black',sans-serif;
+  font-weight:400;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+}
+.serif{font-family:'Source Serif 4',serif;}
+
+/* TOPBAR */
+.topbar{
+  background:var(--gold);color:var(--ink);
+  font-size:12px;letter-spacing:3px;font-weight:700;
+  text-align:center;padding:7px 6%;text-transform:uppercase;
+  font-family:'Archivo',sans-serif;
+}
+
+/* HEADER */
+header{
+  position:sticky;top:0;left:0;right:0;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 6%;
+  background:var(--ink);
+  z-index:1000;
+  border-bottom:1px solid rgba(201,162,39,0.18);
+}
+.logo-wrap{display:flex;align-items:center;gap:16px;}
+.logo-ring{
+  height:52px;width:52px;border-radius:50%;
+  border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.logo-ring img{width:100%;height:100%;object-fit:cover;}
+.brand{font-size:21px;color:var(--ivory);line-height:1;}
+.brand .accent{color:var(--gold);}
+.brand-sub{
+  display:block;font-family:'Source Serif 4',serif;font-style:italic;
+  font-size:12px;letter-spacing:1px;color:var(--grey);
+  margin-top:4px;text-transform:none;font-weight:400;
+}
+nav.nav-links{display:flex;gap:32px;align-items:center;}
+.nav-links a{
+  color:var(--ivory);text-decoration:none;font-size:12px;
+  font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;position:relative;transition:color .25s ease;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;
+  background:var(--gold);transition:width .3s ease;
+}
+.nav-links a:hover{color:var(--gold);}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{
+  border:1px solid var(--gold) !important;color:var(--gold) !important;
+  padding:10px 22px;
+}
+.nav-cta::after{display:none !important;}
+.nav-cta:hover{background:var(--gold) !important;color:var(--ink) !important;}
+.hamburger{
+  display:none;flex-direction:column;gap:5px;cursor:pointer;
+  background:none;border:none;padding:6px;
+}
+.hamburger span{width:26px;height:2px;background:var(--gold);display:block;transition:all .3s;}
+
+/* SHARED SECTION SCAFFOLDING */
+.section{padding:110px 7%;}
+.section-head{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  flex-wrap:wrap;gap:24px;margin-bottom:64px;
+  border-bottom:1px solid rgba(201,162,39,0.18);
+  padding-bottom:32px;
+}
+.section-eyebrow{
+  font-family:'Source Serif 4',serif;font-style:italic;font-weight:400;
+  color:var(--gold);font-size:16px;margin-bottom:10px;
+}
+.section-title{font-size:clamp(32px,4.5vw,52px);color:var(--ivory);}
+.section-title .hl{color:var(--gold);}
+.section-sub{
+  color:var(--grey);font-size:15px;max-width:320px;
+  line-height:1.8;font-weight:400;text-align:right;
+}
+.alt-bg{background:var(--ink-soft);}
+.view-all-wrap{text-align:center;margin-top:52px;}
+
+/* BTN */
+.btn{
+  display:inline-block;font-family:'Archivo Black',sans-serif;
+  font-size:13px;padding:16px 34px;letter-spacing:2px;
+  text-decoration:none;transition:all .3s ease;border:1px solid transparent;
+  text-transform:uppercase;
+}
+.btn-primary{background:var(--brick);color:var(--ivory);border-color:var(--brick);}
+.btn-primary:hover{background:transparent;color:var(--gold);border-color:var(--gold);}
+.btn-outline{border:1px solid var(--gold);color:var(--gold);}
+.btn-outline:hover{background:var(--gold);color:var(--ink);}
+
+/* ========= HERO ========= */
+.hero{
+  position:relative;
+  min-height:calc(100vh - 85px);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 7% 0;
+  background:
+    linear-gradient(105deg,rgba(14,13,12,0.96) 20%,rgba(14,13,12,0.65) 60%,rgba(14,13,12,0.2) 100%),
+    url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1900&auto=format&fit=crop')
+    center/cover no-repeat;
+}
+.hero-kicker{
+  font-family:'Source Serif 4',serif;font-style:italic;
+  font-size:18px;color:var(--gold-bright);margin-bottom:18px;
+}
+.hero h1{
+  font-size:clamp(44px,6.5vw,84px);
+  color:var(--ivory);line-height:1.04;max-width:800px;
+}
+.hero h1 .accent{color:var(--gold);}
+.hero-quote{
+  font-family:'Source Serif 4',serif;font-style:italic;
+  font-size:19px;color:var(--ivory-dim);max-width:480px;
+  margin:26px 0 36px;line-height:1.85;
+  border-left:2px solid var(--gold);padding-left:22px;
+}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:60px;}
+
+/* stat strip pinned to hero bottom */
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(201,162,39,0.28);
+  background:rgba(14,13,12,0.6);
+  backdrop-filter:blur(4px);
+}
+.hero-stat{
+  padding:28px 30px;
+  border-right:1px solid rgba(201,162,39,0.14);
+}
+.hero-stat:last-child{border-right:none;}
+.stat-num{font-size:32px;color:var(--ivory);line-height:1;display:block;margin-bottom:6px;}
+.stat-num .g{color:var(--gold);}
+.stat-label{
+  font-size:11px;letter-spacing:2px;color:var(--grey);
+  text-transform:uppercase;font-weight:700;font-family:'Archivo',sans-serif;
+}
+
+/* ========= WHAT WE STAND FOR ========= */
+.pillar-list{display:flex;flex-direction:column;}
+.pillar-row{
+  display:grid;grid-template-columns:160px 1fr 1.5fr;
+  align-items:center;gap:40px;padding:40px 0;
+  border-bottom:1px solid rgba(201,162,39,0.12);
+  transition:background .3s;
+}
+.pillar-row:first-child{border-top:1px solid rgba(201,162,39,0.12);}
+.pillar-row:hover{background:rgba(201,162,39,0.03);padding-left:8px;}
+.tag-word{
+  font-size:28px;color:transparent;
+  -webkit-text-stroke:1.5px var(--gold);
+  line-height:1;letter-spacing:1px;
+}
+.pillar-row h3{font-size:28px;color:var(--ivory);}
+.pillar-row p{
+  color:var(--grey);font-size:15px;line-height:1.85;
+  font-family:'Source Serif 4',serif;font-weight:400;
+}
+
+/* ========= MEET THE MAN ========= */
+.founder-grid{
+  display:grid;grid-template-columns:0.85fr 1.15fr;
+  gap:80px;align-items:center;
+}
+.founder-img-wrap{display:flex;justify-content:center;}
+.founder-circle{
+  width:min(360px,100%);aspect-ratio:1/1;border-radius:50%;
+  border:1px solid var(--gold);padding:16px;position:relative;
+}
+.founder-circle::after{
+  content:'';position:absolute;inset:-16px;border-radius:50%;
+  border:1px solid rgba(139,30,30,0.6);
+}
+.founder-circle img{
+  width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:top center;
+  filter:grayscale(10%) contrast(1.05);
+}
+.founder-role{
+  font-family:'Source Serif 4',serif;font-style:italic;
+  color:var(--gold);font-size:16px;margin-bottom:10px;
+}
+.founder-body h2{font-size:clamp(36px,5vw,60px);color:var(--ivory);margin-bottom:22px;}
+.founder-blockquote{
+  font-family:'Source Serif 4',serif;font-style:italic;
+  font-size:19px;color:var(--ivory-dim);line-height:1.85;
+  border-left:2px solid var(--gold);padding-left:22px;margin-bottom:24px;
+}
+.founder-body p{
+  color:var(--grey);font-size:15px;line-height:1.9;max-width:520px;margin-bottom:28px;
+}
+.focus-tags{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+.focus-tag{
+  border:1px solid rgba(201,162,39,0.3);color:var(--gold);
+  font-size:11px;padding:8px 16px;letter-spacing:2px;
+  font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;
+}
+
+/* ========= FACILITIES ========= */
+.facility-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:rgba(201,162,39,0.15);
+  border:1px solid rgba(201,162,39,0.15);
+}
+.facility-card{
+  background:var(--ink-soft);display:flex;flex-direction:column;
+  transition:background .3s;
+}
+.facility-card:hover{background:#111;} 
+.facility-img{
+  width:100%;height:200px;object-fit:cover;display:block;
+  filter:grayscale(30%) contrast(1.05);
+  border-bottom:1px solid rgba(201,162,39,0.15);
+  transition:filter .4s;
+}
+.facility-card:hover .facility-img{filter:grayscale(0%) contrast(1.1);}
+.facility-body{padding:28px 24px;flex-grow:1;display:flex;flex-direction:column;}
+.fac-tag{
+  font-size:11px;letter-spacing:3px;color:var(--brick);
+  text-transform:uppercase;font-weight:700;margin-bottom:10px;
+  font-family:'Archivo',sans-serif;
+}
+.facility-card h4{font-size:22px;color:var(--ivory);margin-bottom:12px;}
+.facility-card p{
+  color:var(--grey);font-size:14px;line-height:1.8;
+  font-family:'Source Serif 4',serif;font-style:italic;
+  flex-grow:1;margin-bottom:18px;
+}
+.fac-incl{
+  font-size:11px;letter-spacing:2px;color:var(--gold);
+  text-transform:uppercase;font-weight:700;font-family:'Archivo',sans-serif;
+}
+
+/* ========= GYM INSIDE ========= */
+.gallery-strip{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1fr;
+  grid-template-rows:340px;
+  gap:14px;
+}
+.gallery-strip img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:grayscale(25%) contrast(1.05);
+  border:1px solid rgba(201,162,39,0.12);
+  transition:filter .4s,transform .4s;
+}
+.gallery-strip img:hover{filter:grayscale(0%) contrast(1.1);transform:scale(1.01);}
+
+/* ========= CHAMPIONS ========= */
+.ach-list{display:flex;flex-direction:column;}
+.ach-row{
+  display:grid;grid-template-columns:200px 1fr auto;
+  align-items:center;gap:40px;padding:32px 0;
+  border-bottom:1px solid rgba(201,162,39,0.12);
+  transition:background .25s;
+}
+.ach-row:first-child{border-top:1px solid rgba(201,162,39,0.12);}
+.ach-row:hover{background:rgba(201,162,39,0.03);padding-left:8px;}
+.ach-photo{
+  width:200px;height:130px;object-fit:cover;display:block;
+  border:1px solid rgba(201,162,39,0.2);filter:grayscale(15%);
+}
+.ach-tag{
+  font-size:11px;letter-spacing:3px;color:var(--brick);
+  text-transform:uppercase;font-weight:700;margin-bottom:8px;
+  font-family:'Archivo',sans-serif;
+}
+.ach-body h4{font-size:22px;color:var(--ivory);margin-bottom:6px;}
+.ach-body p{color:var(--grey);font-size:14px;font-family:'Source Serif 4',serif;font-style:italic;}
+.ach-result{
+  font-family:'Archivo Black',sans-serif;
+  font-size:30px;color:var(--gold);text-align:right;line-height:1;
+}
+.ach-result span{
+  display:block;font-size:11px;color:var(--grey);letter-spacing:2px;
+  font-family:'Archivo',sans-serif;font-weight:700;margin-top:6px;text-transform:uppercase;
+}
+
+/* ========= TRANSFORMATIONS ========= */
+.transform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.transform-card{border:1px solid rgba(201,162,39,0.15);background:var(--ink-soft);}
+.transform-img-wrap{position:relative;overflow:hidden;}
+.transform-img-wrap img{
+  width:100%;height:300px;object-fit:cover;display:block;
+  filter:grayscale(20%);transition:filter .4s,transform .4s;
+}
+.transform-card:hover .transform-img-wrap img{filter:grayscale(0%);transform:scale(1.03);}
+.transform-stat{
+  position:absolute;bottom:0;left:0;
+  background:var(--gold);color:var(--ink);
+  font-family:'Archivo Black',sans-serif;
+  font-size:16px;padding:11px 18px;letter-spacing:1px;text-transform:uppercase;
+}
+.transform-body{padding:26px 24px;}
+.transform-body h4{font-size:19px;color:var(--ivory);margin-bottom:4px;}
+.transform-duration{
+  display:block;font-size:11px;letter-spacing:2px;color:var(--grey);
+  text-transform:uppercase;font-weight:700;font-family:'Archivo',sans-serif;
+  margin-bottom:14px;
+}
+.transform-body p{
+  font-family:'Source Serif 4',serif;font-style:italic;
+  color:var(--ivory-dim);font-size:15px;line-height:1.8;
+}
+
+/* ========= BRANCHES ========= */
+.branch-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:rgba(201,162,39,0.15);
+  border:1px solid rgba(201,162,39,0.15);
+}
+.branch-card{
+  background:var(--ink-soft);padding:44px 32px;
+  transition:background .3s;display:flex;flex-direction:column;min-height:270px;
+}
+.branch-card:hover{background:#111;}
+.branch-card.dim{opacity:0.6;}
+.seal{
+  width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Archivo Black',sans-serif;font-size:15px;color:var(--gold);
+  margin-bottom:26px;
+}
+.branch-card h4{font-size:24px;color:var(--ivory);margin-bottom:12px;}
+.branch-card p{color:var(--grey);font-size:14px;line-height:1.7;flex-grow:1;
+  font-family:'Source Serif 4',serif;font-style:italic;}
+.coming-tag{
+  margin-top:18px;align-self:flex-start;
+  border:1px solid var(--gold);color:var(--gold);
+  font-size:11px;padding:6px 14px;letter-spacing:2px;
+  font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;
+}
+
+/* ========= CTA BANNER ========= */
+.cta-section{
+  background:var(--ink-soft);
+  border-top:5px solid var(--gold);
+  padding:110px 7%;
+  display:grid;grid-template-columns:1.3fr 1fr;align-items:center;gap:60px;
+}
+.cta-section h2{font-size:clamp(36px,5.5vw,64px);color:var(--ivory);line-height:1.06;}
+.cta-section h2 .accent{color:var(--gold);}
+.cta-section > div:first-child > p{
+  font-family:'Source Serif 4',serif;font-style:italic;
+  color:var(--grey);font-size:18px;line-height:1.85;margin:22px 0 30px;
+}
+.cta-list{list-style:none;margin-bottom:36px;display:flex;flex-direction:column;gap:12px;}
+.cta-list li{
+  display:flex;align-items:baseline;gap:12px;
+  font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--ivory-dim);font-weight:700;font-family:'Archivo',sans-serif;
+}
+.cta-list li::before{content:'—';color:var(--gold);}
+.cta-aside-quote{
+  font-family:'Source Serif 4',serif;font-style:italic;
+  font-size:20px;color:var(--ivory-dim);line-height:1.85;
+  border-left:2px solid var(--brick);padding-left:22px;
+}
+
+/* ========= FOOTER ========= */
+footer{background:var(--ink);padding:80px 7% 30px;}
+.footer-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;
+  margin-bottom:56px;padding-bottom:56px;
+  border-bottom:1px solid rgba(201,162,39,0.12);
+}
+.footer-brand .brand{font-size:24px;margin-bottom:14px;display:block;}
+.footer-brand p{
+  color:var(--grey);font-size:14px;line-height:1.9;max-width:280px;
+  font-family:'Source Serif 4',serif;font-style:italic;
+}
+.footer-social{display:flex;gap:12px;margin-top:22px;}
+.footer-social a{
+  width:38px;height:38px;border:1px solid rgba(201,162,39,0.28);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:11px;font-weight:700;font-family:'Archivo',sans-serif;
+  text-decoration:none;transition:all .25s;
+}
+.footer-social a:hover{background:var(--gold);color:var(--ink);}
+.footer-col h5{
+  color:var(--gold);font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  margin-bottom:20px;font-weight:700;font-family:'Archivo',sans-serif;
+}
+.footer-col a,.footer-col p{
+  display:block;color:var(--grey);text-decoration:none;font-size:14px;
+  margin-bottom:10px;line-height:1.7;transition:color .2s;
+}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{
+  text-align:center;color:var(--grey);font-size:12px;
+  letter-spacing:2px;text-transform:uppercase;
+}
+.footer-bottom span{color:var(--gold);}
+
+/* ========= RESPONSIVE ========= */
+@media(max-width:1024px){
+  .hero-stats{grid-template-columns:repeat(2,1fr);}
+  .hero-stat:nth-child(2){border-right:none;}
+  .hero-stat:nth-child(3),.hero-stat:nth-child(4){border-top:1px solid rgba(201,162,39,0.14);}
+  .facility-grid{grid-template-columns:repeat(2,1fr);}
+  .branch-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .gallery-strip{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .gallery-strip img{min-height:220px;}
+  .ach-row{grid-template-columns:160px 1fr;}
+  .ach-photo{width:160px;height:110px;}
+  .ach-result{grid-column:1/-1;text-align:left;}
+}
+@media(max-width:900px){
+  .pillar-row{grid-template-columns:80px 1fr;}
+  .pillar-row p{grid-column:1/-1;}
+  .tag-word{font-size:20px;}
+  .founder-grid{grid-template-columns:1fr;gap:50px;text-align:center;}
+  .founder-blockquote,.founder-body p{text-align:left;}
+  .focus-tags{justify-content:center;}
+  .transform-grid{grid-template-columns:1fr;}
+  .cta-section{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  .nav-links{
+    position:fixed;top:85px;left:0;right:0;background:var(--ink);
+    flex-direction:column;padding:30px 6%;gap:22px;
+    transform:translateY(-130%);transition:transform .35s ease;
+    border-bottom:1px solid rgba(201,162,39,0.18);z-index:999;
+  }
+  .nav-links.open{transform:translateY(0);}
+  .hamburger{display:flex;}
+  .hero-stats{grid-template-columns:1fr;}
+  .hero-stat{border-right:none;border-bottom:1px solid rgba(201,162,39,0.14);}
+  .hero-stat:nth-child(3),.hero-stat:nth-child(4){border-top:none;}
+  .branch-grid,.facility-grid{grid-template-columns:1fr;}
+  .gallery-strip{grid-template-columns:1fr;}
+  .section{padding:72px 6%;}
+  .section-head{flex-direction:column;align-items:flex-start;}
+  .section-sub{text-align:left;}
+  .hero{padding:60px 6% 0;}
+  .footer-grid{grid-template-columns:1fr;}
+  .ach-row{grid-template-columns:1fr;}
+  .ach-photo{width:100%;height:160px;}
+}
+</style>
+</head>
+<body>
+
+<!-- topbar -->
+<div class="topbar">Three branches live in Silchar &nbsp;·&nbsp; Rangirkhari opening soon</div>
+
+<!-- header -->
+<header>
+  <div class="logo-wrap">
+    <div class="logo-ring">
+      <img src="logo.jpg" alt="Om Sai Gym">
+    </div>
+    <div class="brand">OM SAI <span class="accent">GYM</span>
+      <span class="brand-sub">Faith in the work.</span>
+    </div>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="facilities.html">Facilities</a>
+    <a href="branches.html">Branches</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="transformations.html">Transformations</a>
+    <a href="contact.html" class="nav-cta">Join Now</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-kicker">Silchar's most premium fitness destination</div>
+  <h1>Strength is a <span class="accent">practice</span>,<br>not a phase.</h1>
+  <p class="hero-quote">
+    Four disciplines under one roof — Powerlifting, Bodybuilding,<br>
+    CrossFit, and HYROX — across branches built to the same premium standard.
+  </p>
+  <div class="hero-btns">
+    <a href="contact.html" class="btn btn-primary">Become a Member</a>
+    <a href="facilities.html" class="btn btn-outline">Explore Facilities</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="stat-num"><span class="g">3</span></span>
+      <span class="stat-label">Live Branches in Silchar</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-num"><span class="g">500+</span></span>
+      <span class="stat-label">Active Members</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-num"><span class="g">15+</span></span>
+      <span class="stat-label">Competitive Titles Won</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-num"><span class="g">HYROX</span></span>
+      <span class="stat-label">Ready Training Floors</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT WE STAND FOR ===== -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <div class="section-eyebrow">Why Om Sai Gym</div>
+      <h2 class="section-title">What we <span class="hl">stand for.</span></h2>
+    </div>
+    <p class="section-sub">Three commitments that shape every branch, every session, every membership.</p>
+  </div>
+  <div class="pillar-list">
+    <div class="pillar-row">
+      <div class="tag-word">PEOPLE</div>
+      <h3>Community</h3>
+      <p>Train with people who push you. A gym family unlike any other in Silchar — one that shows up, holds you accountable, and celebrates every milestone with you.</p>
+    </div>
+    <div class="pillar-row">
+      <div class="tag-word">VALUE</div>
+      <h3>Affordability</h3>
+      <p>Premium facilities, memberships for everyone. We've removed the barrier to entry without compromising on equipment, coaching, or atmosphere.</p>
+    </div>
+    <div class="pillar-row">
+      <div class="tag-word">CRAFT</div>
+      <h3>Specialization</h3>
+      <p>Powerlifting. Bodybuilding. CrossFit. HYROX. All under one roof, coached by people who've competed and won at the highest regional levels.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEET THE MAN ===== -->
+<section class="section alt-bg" id="founder">
+  <div class="founder-grid">
+    <div class="founder-img-wrap">
+      <div class="founder-circle">
+        <!-- PLACEHOLDER: replace src with Sagnick Gupta's portrait -->
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=900&auto=format&fit=crop" alt="Sagnick Gupta — Founder, Om Sai Gym">
+      </div>
+    </div>
+    <div class="founder-body">
+      <div class="founder-role">The Founder</div>
+      <h2>Sagnick<br>Gupta.</h2>
+      <p class="founder-blockquote">"Om Sai Ram — discipline of the body is discipline of the mind. We train both, every single day."</p>
+      <p>Sagnick built Om Sai Gym on one idea: that a serious lifter, a first-time member, and a HYROX athlete should all feel at home on the same floor. He started with a single location, stayed hands-on across every discipline, and grew it to three branches across Silchar without cutting corners on equipment, coaching, or culture. A fourth is on the way.</p>
+      <p>From programming the powerlifting blocks to sourcing competition-grade HYROX stations, Sagnick runs the gym the way he trains — with purpose, not just passion.</p>
+      <div class="focus-tags">
+        <span class="focus-tag">Powerlifting</span>
+        <span class="focus-tag">Bodybuilding</span>
+        <span class="focus-tag">HYROX</span>
+        <span class="focus-tag">CrossFit</span>
+        <span class="focus-tag">Gym Operations</span>
+      </div>
+      <a href="contact.html" class="btn btn-primary">Join His Gym</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FACILITIES ===== -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <div class="section-eyebrow">Train Your Way</div>
+      <h2 class="section-title">Four disciplines. <span class="hl">One membership.</span></h2>
+    </div>
+    <p class="section-sub">Pick your focus, switch it up, or train all four. Every membership covers it.</p>
+  </div>
+  <div class="facility-grid">
+    <div class="facility-card">
+      <!-- PLACEHOLDER IMAGE -->
+      <img class="facility-img" src="https://images.unsplash.com/photo-1576678927484-cc907957088c?q=80&w=700&auto=format&fit=crop" alt="Powerlifting platforms">
+      <div class="facility-body">
+        <div class="fac-tag">Strength</div>
+        <h4>Powerlifting</h4>
+        <p>Competition-grade platforms, calibrated plates, and racks built for athletes chasing real squat, bench, and deadlift numbers.</p>
+        <div class="fac-incl">Included in all memberships</div>
+      </div>
+    </div>
+    <div class="facility-card">
+      <!-- PLACEHOLDER IMAGE -->
+      <img class="facility-img" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=700&auto=format&fit=crop" alt="Bodybuilding free weights">
+      <div class="facility-body">
+        <div class="fac-tag">Physique</div>
+        <h4>Bodybuilding</h4>
+        <p>Full hypertrophy range — free weights, cables, machines, and the volume capacity that competitive physiques are actually built on.</p>
+        <div class="fac-incl">Included in all memberships</div>
+      </div>
+    </div>
+    <div class="facility-card">
+      <!-- PLACEHOLDER IMAGE -->
+      <img class="facility-img" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=700&auto=format&fit=crop" alt="CrossFit functional training">
+      <div class="facility-body">
+        <div class="fac-tag">Functional</div>
+        <h4>CrossFit</h4>
+        <p>An open rig and floor for varied, high-intensity work — ropes, sleds, kettlebells, and structured daily sessions.</p>
+        <div class="fac-incl">Included in all memberships</div>
+      </div>
+    </div>
+    <div class="facility-card">
+      <!-- PLACEHOLDER IMAGE -->
+      <img class="facility-img" src="https://images.unsplash.com/photo-1577221084712-45b0445d2b00?q=80&w=700&auto=format&fit=crop" alt="HYROX training stations">
+      <div class="facility-body">
+        <div class="fac-tag">Endurance</div>
+        <h4>HYROX</h4>
+        <p>Ski erg, rower, sled track, wall balls — race-standard stations built to the official HYROX format. Train for the race, on the actual kit.</p>
+        <div class="fac-incl">Included in all memberships</div>
+      </div>
+    </div>
+  </div>
+  <div class="view-all-wrap">
+    <a href="contact.html" class="btn btn-primary">View Membership Plans</a>
+    &nbsp;&nbsp;
+    <a href="facilities.html" class="btn btn-outline">Explore All Facilities</a>
+  </div>
+</section>
+
+<!-- ===== GYM INSIDE ===== -->
+<section class="section alt-bg">
+  <div class="section-head">
+    <div>
+      <div class="section-eyebrow">Inside the Gym</div>
+      <h2 class="section-title">A glimpse <span class="hl">inside.</span></h2>
+    </div>
+    <p class="section-sub">The atmosphere that's building Silchar's strongest fitness community.</p>
+  </div>
+  <!-- PLACEHOLDER IMAGES — replace with real gym photography -->
+  <div class="gallery-strip">
+    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop" alt="Main training floor">
+    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800&auto=format&fit=crop" alt="Weight section">
+    <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=800&auto=format&fit=crop" alt="Members training">
+    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=800&auto=format&fit=crop" alt="Strength equipment">
+  </div>
+  <div class="view-all-wrap">
+    <a href="gallery.html" class="btn btn-outline">View Full Gallery</a>
+  </div>
+</section>
+
+<!-- ===== OUR CHAMPIONS ===== -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <div class="section-eyebrow">Track Record</div>
+      <h2 class="section-title">Our <span class="hl">champions.</span></h2>
+    </div>
+    <p class="section-sub">No other gym in Silchar can show this level of competitive results across all four disciplines.</p>
+  </div>
+  <!-- PLACEHOLDER — replace names, titles, results, photos with real data -->
+  <div class="ach-list">
+    <div class="ach-row">
+      <img class="ach-photo" src="https://images.unsplash.com/photo-1576678927484-cc907957088c?q=80&w=600&auto=format&fit=crop" alt="Powerlifting">
+      <div class="ach-body">
+        <div class="ach-tag">Powerlifting</div>
+        <h4>State Championship, 2025</h4>
+        <p>Silchar District Sports Complex</p>
+      </div>
+      <div class="ach-result">1st<span>83kg category</span></div>
+    </div>
+    <div class="ach-row">
+      <img class="ach-photo" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=600&auto=format&fit=crop" alt="Bodybuilding">
+      <div class="ach-body">
+        <div class="ach-tag">Bodybuilding</div>
+        <h4>Regional Classic Physique, 2025</h4>
+        <p>Open category, judged across three rounds</p>
+      </div>
+      <div class="ach-result">1st<span>Overall champion</span></div>
+    </div>
+    <div class="ach-row">
+      <img class="ach-photo" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop" alt="CrossFit">
+      <div class="ach-body">
+        <div class="ach-tag">CrossFit</div>
+        <h4>Inter-Gym Challenge, 2025</h4>
+        <p>Team category, competing against six gyms</p>
+      </div>
+      <div class="ach-result">1st<span>Team category</span></div>
+    </div>
+    <div class="ach-row">
+      <img class="ach-photo" src="https://images.unsplash.com/photo-1577221084712-45b0445d2b00?q=80&w=600&auto=format&fit=crop" alt="HYROX">
+      <div class="ach-body">
+        <div class="ach-tag">Hyrox</div>
+        <h4>North East Open, 2026</h4>
+        <p>Pro division, eight-station endurance format</p>
+      </div>
+      <div class="ach-result">Top 3<span>Pro division</span></div>
+    </div>
+  </div>
+  <div class="view-all-wrap">
+    <a href="achievements.html" class="btn btn-outline">View All Achievements</a>
+  </div>
+</section>
+
+<!-- ===== TRANSFORMATIONS ===== -->
+<section class="section alt-bg">
+  <div class="section-head">
+    <div>
+      <div class="section-eyebrow">Real Results</div>
+      <h2 class="section-title">Built here. <span class="hl">Proven here.</span></h2>
+    </div>
+    <p class="section-sub">Every transformation on this wall started with the same first step — a membership and a plan.</p>
+  </div>
+  <!-- PLACEHOLDER — replace with real member transformations -->
+  <div class="transform-grid">
+    <div class="transform-card">
+      <div class="transform-img-wrap">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=700&auto=format&fit=crop" alt="Member result">
+        <div class="transform-stat">−14 KG</div>
+      </div>
+      <div class="transform-body">
+        <h4>Rohit Das</h4>
+        <span class="transform-duration">18 Weeks · Strength + Conditioning</span>
+        <p>"I came in to lose weight and ended up obsessed with my deadlift. The coaches changed the plan every time my body did."</p>
+      </div>
+    </div>
+    <div class="transform-card">
+      <div class="transform-img-wrap">
+        <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=700&auto=format&fit=crop" alt="Member result">
+        <div class="transform-stat">+6 KG LEAN</div>
+      </div>
+      <div class="transform-body">
+        <h4>Priya Nath</h4>
+        <span class="transform-duration">22 Weeks · Bodybuilding Track</span>
+        <p>"First gym where I didn't feel like the only woman lifting heavy. The programming actually had a real plan behind it."</p>
+      </div>
+    </div>
+    <div class="transform-card">
+      <div class="transform-img-wrap">
+        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=700&auto=format&fit=crop" alt="Member result">
+        <div class="transform-stat">SUB-90 MIN</div>
+      </div>
+      <div class="transform-body">
+        <h4>Arjun Bose</h4>
+        <span class="transform-duration">16 Weeks · HYROX Prep</span>
+        <p>"Trained on the actual HYROX stations for months before my first race. Broke 90 minutes on the first attempt."</p>
+      </div>
+    </div>
+  </div>
+  <div class="view-all-wrap">
+    <a href="transformations.html" class="btn btn-outline">View All Transformations</a>
+  </div>
+</section>
+
+<!-- ===== BRANCHES ===== -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <div class="section-eyebrow">Our Locations</div>
+      <h2 class="section-title">Find your <span class="hl">branch.</span></h2>
+    </div>
+    <p class="section-sub">Four locations across Silchar — each built to the same Om Sai Gym standard.</p>
+  </div>
+  <div class="branch-grid">
+    <div class="branch-card">
+      <div class="seal">01</div>
+      <h4>Ambikapatty</h4>
+      <p>Our flagship location — full strength floor, CrossFit rig, cardio, and HYROX stations all under one roof.</p>
+    </div>
+    <div class="branch-card">
+      <div class="seal">02</div>
+      <h4>Meherpur</h4>
+      <p>Community favorite with dedicated competition-grade powerlifting platforms and a strong local athlete base.</p>
+    </div>
+    <div class="branch-card">
+      <div class="seal">03</div>
+      <h4>Udharband</h4>
+      <p>Spacious floor purpose-built for group sessions, structured classes, and hybrid training blocks.</p>
+    </div>
+    <div class="branch-card dim">
+      <div class="seal">04</div>
+      <h4>Rangirkhari</h4>
+      <p>Our next expansion — same premium standard, serving the Rangirkhari community very soon.</p>
+      <span class="coming-tag">Coming Soon</span>
+    </div>
+  </div>
+  <div class="view-all-wrap">
+    <a href="branches.html" class="btn btn-outline">View All Branches</a>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div>
+    <h2>Your membership<br><span class="accent">starts here.</span></h2>
+    <p>One membership covers four disciplines across three live branches. No hidden fees, no equipment restrictions, no separate charges for the kit you actually want to use.</p>
+    <ul class="cta-list">
+      <li>Powerlifting, Bodybuilding, CrossFit &amp; HYROX — all included</li>
+      <li>Train at any live branch on one membership</li>
+      <li>Coached programming, not just floor access</li>
+      <li>Competitive pathways from day one</li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary">Become a Member</a>
+  </div>
+  <div>
+    <p class="cta-aside-quote">
+      "Om Sai Ram — discipline of the body is discipline of the mind. We train both, every single day."
+      <br><br>
+      — Sagnick Gupta, Founder
+    </p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="brand">OM SAI <span class="accent">GYM</span></span>
+      <p>Silchar's most premium fitness destination — three branches strong, with a fourth on the way. Train. Compete. Belong.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Pages</h5>
+      <a href="index.html">Home</a>
+      <a href="facilities.html">Facilities</a>
+      <a href="branches.html">Branches</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="transformations.html">Transformations</a>
+    </div>
+    <div class="footer-col">
+      <h5>Our Branches</h5>
+      <p>Ambikapatty, Silchar</p>
+      <p>Meherpur, Silchar</p>
+      <p>Udharband, Silchar</p>
+      <p>Rangirkhari — Coming Soon</p>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <p>+91 00000 00000</p>
+      <p>info@omsaigym.com</p>
+      <a href="contact.html">View Membership Plans →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 <span>Om Sai Gym</span>. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+</script>
+</body>
+</html>
